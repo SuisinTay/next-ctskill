@@ -1,21 +1,19 @@
 import { ContactForm } from "@/components/forms";
 import {
-  CarouselLevelCard,
-  DetailsCard,
-  HeaderTag,
-  ImageTitleCard,
   PageHeader,
   Testimonial,
   TestimonialContent,
-  VacanciesCard,
 } from "@/components/marketing";
+import { SearchCoursesCard } from "@/components/marketing/search-courses-card";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { Input } from "@/components/ui/input";
 import {
   BookAudio,
   ChartNoAxesCombined,
@@ -24,16 +22,222 @@ import {
   ClipboardList,
   Flag,
   Handshake,
-  ListCheck,
+  Landmark,
   Play,
   Search,
+  Star,
+  TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const breadcrumbs = [
-  { label: "Home", href: "/" },
-  { label: "Apprenticeships" },
+const breadcrumbs = [{ label: "Home", href: "/" }, { label: "Online Courses" }];
+
+const searchInformationItems = [
+  {
+    taggings: ["EDUCATION & TRAINING", "ACCOUNTING", "SAMPLE TAG"],
+    image: "/images/search-image.jpg",
+    title: "Course title can go here and it can go up to two lines",
+    informations: [
+      {
+        icon: (
+          <Star
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Level 2 Qualification with Certificate",
+      },
+      {
+        icon: (
+          <Landmark
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "HM Government Funded",
+      },
+      {
+        icon: (
+          <TrendingUp
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Fast-track Online Enrolment",
+      },
+    ],
+  },
+  {
+    taggings: ["EDUCATION & TRAINING", "ACCOUNTING", "SAMPLE TAG"],
+    image: "/images/search-image.jpg",
+    title: "Course title can go here and it can go up to two lines",
+    informations: [
+      {
+        icon: (
+          <Star
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Level 2 Qualification with Certificate",
+      },
+      {
+        icon: (
+          <Landmark
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "HM Government Funded",
+      },
+      {
+        icon: (
+          <TrendingUp
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Fast-track Online Enrolment",
+      },
+    ],
+  },
+  {
+    taggings: ["EDUCATION & TRAINING", "ACCOUNTING", "SAMPLE TAG"],
+    image: "/images/search-image.jpg",
+    title: "Course title can go here and it can go up to two lines",
+    informations: [
+      {
+        icon: (
+          <Star
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Level 2 Qualification with Certificate",
+      },
+      {
+        icon: (
+          <Landmark
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "HM Government Funded",
+      },
+      {
+        icon: (
+          <TrendingUp
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Fast-track Online Enrolment",
+      },
+    ],
+  },
+  {
+    taggings: ["EDUCATION & TRAINING", "ACCOUNTING", "SAMPLE TAG"],
+    image: "/images/search-image.jpg",
+    title: "Course title can go here and it can go up to two lines",
+    informations: [
+      {
+        icon: (
+          <Star
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Level 2 Qualification with Certificate",
+      },
+      {
+        icon: (
+          <Landmark
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "HM Government Funded",
+      },
+      {
+        icon: (
+          <TrendingUp
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Fast-track Online Enrolment",
+      },
+    ],
+  },
+  {
+    taggings: ["EDUCATION & TRAINING", "ACCOUNTING", "SAMPLE TAG"],
+    image: "/images/search-image.jpg",
+    title: "Course title can go here and it can go up to two lines",
+    informations: [
+      {
+        icon: (
+          <Star
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Level 2 Qualification with Certificate",
+      },
+      {
+        icon: (
+          <Landmark
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "HM Government Funded",
+      },
+      {
+        icon: (
+          <TrendingUp
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Fast-track Online Enrolment",
+      },
+    ],
+  },
+  {
+    taggings: ["EDUCATION & TRAINING", "ACCOUNTING", "SAMPLE TAG"],
+    image: "/images/search-image.jpg",
+    title: "Course title can go here and it can go up to two lines",
+    informations: [
+      {
+        icon: (
+          <Star
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Level 2 Qualification with Certificate",
+      },
+      {
+        icon: (
+          <Landmark
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "HM Government Funded",
+      },
+      {
+        icon: (
+          <TrendingUp
+            className="fill-secondary-orange-100 placeholder-secondary-orange-100"
+            color="#f8b725"
+          />
+        ),
+        info: "Fast-track Online Enrolment",
+      },
+    ],
+  },
 ];
 
 const whyLearnItems = [
@@ -139,12 +343,12 @@ export default function Apprenticeship() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <PageHeader
-        title="Apprenticeships"
+        title="Online Courses"
         breadcrumbs={breadcrumbs}
         backgroundColor="bg-secondary-orange-10"
         titleColor="text-neutral-black-100"
         headerImage="/images/online-courses-header-image.png"
-        content="For over 20 years, we’ve helped people launch rewarding careers and supported organisations in building skilled teams through apprenticeships that blend training with real-world experience."
+        content="Unlock your future with nationally recognised online courses - study from anywhere, succeed everywhere."
         mainHeader
       />
 
@@ -189,9 +393,97 @@ export default function Apprenticeship() {
         </div>
       </div>
 
-      {/* Static Card Secton */}
+      {/* Search Secton */}
       <div className="container mx-auto px-6 sm:px-10 lg:px-[100px] relative z-10 flex justify-between pb-16">
-        Search should go here
+        <Card className="border-neutral-black-30 p-12">
+          <div className="text-start">
+            <h5 className="text-xl font-semibold">
+              Ready to take the{" "}
+              <span className="text-primary-100">next step?</span>
+            </h5>
+            <p>Browse our courses below and find your perfect fit.</p>
+          </div>
+          <Card className="border-neutral-black-30 p-3 pl-6 flex flex-row items-center">
+            <div className="w-[654] border-r border-neutral-black-30">
+              <p className="text-primary-100">
+                SEARCH FOR COURSE TITLE OR KEYWORDS
+              </p>
+              <Input
+                placeholder={`Try "childcare"`}
+                className="border-0 shadow-none p-0 w-[200]"
+              />
+            </div>
+            <div className="w-[315]">
+              <p className="text-primary-100">POSTCODE</p>
+              <Input
+                placeholder={`"12345"`}
+                className="border-0 shadow-none p-0"
+              />
+            </div>
+            <Button variant="default" size="lg" asChild className="w-fit">
+              <Link href="/contact-us">
+                <span className="text-m font-[400]">Search</span>
+                <div className="p-2 bg-neutral-white-100 rounded-md">
+                  <ChevronRight className="h-4 w-4" color="#450932" />
+                </div>
+              </Link>
+            </Button>
+          </Card>
+          <div className="flex justify-between">
+            <div className="w-[292] flex flex-col gap-4">
+              <p className="text-neutral-black-30 font-bold text-[13px]">
+                CATEGORIES
+              </p>
+              <div className="flex items-center">
+                <Checkbox />
+                <div className="w-full flex justify-between pl-6">
+                  <p>Business Skills</p>
+                  <p className="font-bold">32</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Checkbox />
+                <div className="w-full flex justify-between pl-6">
+                  <p>Childcare</p>
+                  <p className="font-bold">23</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Checkbox />
+                <div className="w-full flex justify-between pl-6">
+                  <p>IT Skills</p>
+                  <p className="font-bold">13</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Checkbox />
+                <div className="w-full flex justify-between pl-6">
+                  <p>Mental Health</p>
+                  <p className="font-bold">9</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Checkbox />
+                <div className="w-full flex justify-between pl-6">
+                  <p>Social Care</p>
+                  <p className="font-bold">8</p>
+                </div>
+              </div>
+              <p className="text-primary-100 font-bold">RESET</p>
+            </div>
+            <div className="grid grid-cols-2 gap-10">
+              {searchInformationItems.map((searchInformationItem, index) => (
+                <SearchCoursesCard
+                  key={index}
+                  taggings={searchInformationItem.taggings}
+                  image={searchInformationItem.image}
+                  title={searchInformationItem.title}
+                  informations={searchInformationItem.informations}
+                />
+              ))}
+            </div>
+          </div>
+        </Card>
       </div>
 
       {/* Carousel Section */}
